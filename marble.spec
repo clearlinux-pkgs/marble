@@ -6,7 +6,7 @@
 #
 Name     : marble
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/marble-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/marble-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/marble-18.08.0.tar.xz.sig
@@ -14,7 +14,6 @@ Summary  : zlib compression library
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 MIT
 Requires: marble-bin
-Requires: marble-config
 Requires: marble-lib
 Requires: marble-data
 Requires: marble-license
@@ -36,19 +35,10 @@ can be downloaded from <http://www.celestrak.com/publications/AIAA/2006-6753/>.
 Summary: bin components for the marble package.
 Group: Binaries
 Requires: marble-data
-Requires: marble-config
 Requires: marble-license
 
 %description bin
 bin components for the marble package.
-
-
-%package config
-Summary: config components for the marble package.
-Group: Default
-
-%description config
-config components for the marble package.
 
 
 %package data
@@ -113,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535237710
+export SOURCE_DATE_EPOCH=1535435125
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -121,7 +111,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535237710
+export SOURCE_DATE_EPOCH=1535435125
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/marble
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/marble/COPYING-CMAKE-SCRIPTS
@@ -145,10 +135,6 @@ popd
 %defattr(-,root,root,-)
 /usr/bin/marble
 /usr/bin/marble-qt
-
-%files config
-%defattr(-,root,root,-)
-%config /usr/etc/xdg/marble.knsrc
 
 %files data
 %defattr(-,root,root,-)
@@ -1522,6 +1508,7 @@ popd
 /usr/share/plasma/wallpapers/org.kde.plasma.worldmap/contents/ui/main.qml
 /usr/share/plasma/wallpapers/org.kde.plasma.worldmap/metadata.desktop
 /usr/share/plasma/wallpapers/org.kde.plasma.worldmap/metadata.json
+/usr/share/xdg/marble.knsrc
 
 %files dev
 %defattr(-,root,root,-)
