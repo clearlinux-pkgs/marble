@@ -5,37 +5,42 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : marble
-Version  : 18.08.0
-Release  : 3
-URL      : https://download.kde.org/stable/applications/18.08.0/src/marble-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/marble-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/marble-18.08.0.tar.xz.sig
-Summary  : zlib compression library
+Version  : 18.12.2
+Release  : 4
+URL      : https://download.kde.org/stable/applications/18.12.2/src/marble-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/marble-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/marble-18.12.2.tar.xz.sig
+Summary  : Desktop Globe
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 MIT
-Requires: marble-bin
-Requires: marble-lib
-Requires: marble-data
-Requires: marble-license
-Requires: marble-locales
+Requires: marble-bin = %{version}-%{release}
+Requires: marble-data = %{version}-%{release}
+Requires: marble-lib = %{version}-%{release}
+Requires: marble-license = %{version}-%{release}
+Requires: marble-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : krunner-dev
 BuildRequires : plasma-framework-dev
 BuildRequires : protobuf-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 BuildRequires : qttools-dev
+BuildRequires : qtwebengine-dev
 BuildRequires : zlib-dev
 
 %description
-This code comes from the paper AIAA 2006-6753 [0]. Both the paper and the code
-can be downloaded from <http://www.celestrak.com/publications/AIAA/2006-6753/>.
+ZLIB DATA COMPRESSION LIBRARY
+zlib 1.2.8 is a general purpose data compression library.  All the code is
+thread safe.  The data format used by the zlib library is described by RFCs
+(Request for Comments) 1950 to 1952 in the files
+http://tools.ietf.org/html/rfc1950 (zlib format), rfc1951 (deflate format) and
+rfc1952 (gzip format).
 
 %package bin
 Summary: bin components for the marble package.
 Group: Binaries
-Requires: marble-data
-Requires: marble-license
+Requires: marble-data = %{version}-%{release}
+Requires: marble-license = %{version}-%{release}
 
 %description bin
 bin components for the marble package.
@@ -52,10 +57,10 @@ data components for the marble package.
 %package dev
 Summary: dev components for the marble package.
 Group: Development
-Requires: marble-lib
-Requires: marble-bin
-Requires: marble-data
-Provides: marble-devel
+Requires: marble-lib = %{version}-%{release}
+Requires: marble-bin = %{version}-%{release}
+Requires: marble-data = %{version}-%{release}
+Provides: marble-devel = %{version}-%{release}
 
 %description dev
 dev components for the marble package.
@@ -72,8 +77,8 @@ doc components for the marble package.
 %package lib
 Summary: lib components for the marble package.
 Group: Libraries
-Requires: marble-data
-Requires: marble-license
+Requires: marble-data = %{version}-%{release}
+Requires: marble-license = %{version}-%{release}
 
 %description lib
 lib components for the marble package.
@@ -96,36 +101,36 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-18.08.0
+%setup -q -n marble-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535435125
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549909511
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535435125
+export SOURCE_DATE_EPOCH=1549909511
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/marble
-cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/marble/COPYING-CMAKE-SCRIPTS
-cp COPYING.DOC %{buildroot}/usr/share/doc/marble/COPYING.DOC
-cp LICENSE.GPL-3 %{buildroot}/usr/share/doc/marble/LICENSE.GPL-3
-cp LICENSE.txt %{buildroot}/usr/share/doc/marble/LICENSE.txt
-cp src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/doc/marble/src_3rdparty_o5mreader_LICENSE
-cp tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/doc/marble/tools_vectorosm-tilecreator_clipper_License.txt
+mkdir -p %{buildroot}/usr/share/package-licenses/marble
+cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/COPYING-CMAKE-SCRIPTS
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/COPYING.DOC
+cp LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/LICENSE.GPL-3
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/LICENSE.txt
+cp src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/src_3rdparty_o5mreader_LICENSE
+cp tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/tools_vectorosm-tilecreator_clipper_License.txt
 pushd clr-build
 %make_install
 popd
 %find_lang marble
-%find_lang plasma_applet_org.kde.plasma.worldclock
 %find_lang plasma_runner_marble
+%find_lang plasma_applet_org.kde.plasma.worldclock
 %find_lang plasma_wallpaper_org.kde.plasma.worldmap
 
 %files
@@ -165,7 +170,6 @@ popd
 /usr/share/kxmlgui5/marble/marble_part.rc
 /usr/share/kxmlgui5/marble/marbleui.rc
 /usr/share/locale/ar/LC_MESSAGES/marble_qt.qm
-/usr/share/locale/ast/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/bg/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/bs/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ca/LC_MESSAGES/marble_qt.qm
@@ -1495,7 +1499,6 @@ popd
 /usr/share/marble/data/weather/wind-arrows.svgz
 /usr/share/metainfo/org.kde.marble.appdata.xml
 /usr/share/metainfo/org.kde.plasma.worldclock.appdata.xml
-/usr/share/metainfo/org.kde.plasma.worldmap.appdata.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/config.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/main.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/ui/configMapDisplay.qml
@@ -1616,11 +1619,10 @@ popd
 /usr/include/marble/MarbleMath.h
 /usr/include/marble/MarbleModel.h
 /usr/include/marble/MarbleNavigator.h
+/usr/include/marble/MarbleWebView.h
 /usr/include/marble/MarbleWidget.h
 /usr/include/marble/MarbleWidgetInputHandler.h
 /usr/include/marble/MarbleWidgetPopupMenu.h
-/usr/include/marble/NullMarbleWebView.h
-/usr/include/marble/NullTinyWebBrowser.h
 /usr/include/marble/OsmcSymbol.h
 /usr/include/marble/ParseRunnerPlugin.h
 /usr/include/marble/ParsingRunner.h
@@ -1665,6 +1667,7 @@ popd
 /usr/include/marble/TileCreatorDialog.h
 /usr/include/marble/TileId.h
 /usr/include/marble/TileLevelRangeWidget.h
+/usr/include/marble/TinyWebBrowser.h
 /usr/include/marble/TourControlEditWidget.h
 /usr/include/marble/TourItemDelegate.h
 /usr/include/marble/TourPlayback.h
@@ -1689,7 +1692,6 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
-%doc /usr/share/doc/marble/*
 /usr/share/doc/HTML/ca/marble/configure-cacheproxy.png
 /usr/share/doc/HTML/ca/marble/configure-navigation.png
 /usr/share/doc/HTML/ca/marble/configure-plugins.png
@@ -1744,7 +1746,6 @@ popd
 /usr/share/doc/HTML/es/marble/configure-view.png
 /usr/share/doc/HTML/es/marble/index.cache.bz2
 /usr/share/doc/HTML/es/marble/index.docbook
-/usr/share/doc/HTML/es/marble/logo-1.png
 /usr/share/doc/HTML/es/marble/mapview-1.png
 /usr/share/doc/HTML/es/marble/measure-1.png
 /usr/share/doc/HTML/es/marble/quick-1.png
@@ -1904,10 +1905,12 @@ popd
 /usr/lib64/marble/plugins/libNominatimSearchPlugin.so
 /usr/lib64/marble/plugins/libNotesPlugin.so
 /usr/lib64/marble/plugins/libOSRMPlugin.so
+/usr/lib64/marble/plugins/libOpenDesktopPlugin.so
 /usr/lib64/marble/plugins/libOpenLocationCodeSearchPlugin.so
 /usr/lib64/marble/plugins/libOpenRouteServicePlugin.so
 /usr/lib64/marble/plugins/libOsmPlugin.so
 /usr/lib64/marble/plugins/libOverviewMap.so
+/usr/lib64/marble/plugins/libPhoto.so
 /usr/lib64/marble/plugins/libPn2Plugin.so
 /usr/lib64/marble/plugins/libPntPlugin.so
 /usr/lib64/marble/plugins/libPositionMarker.so
@@ -1920,6 +1923,8 @@ popd
 /usr/lib64/marble/plugins/libSpeedometer.so
 /usr/lib64/marble/plugins/libStarsPlugin.so
 /usr/lib64/marble/plugins/libSunPlugin.so
+/usr/lib64/marble/plugins/libWeather.so
+/usr/lib64/marble/plugins/libWikipedia.so
 /usr/lib64/marble/plugins/libYoursPlugin.so
 /usr/lib64/plugins/designer/libLatLonEditPlugin.so
 /usr/lib64/plugins/designer/libMarbleNavigatorPlugin.so
@@ -1931,13 +1936,14 @@ popd
 /usr/lib64/qt5/qml/org/kde/marble/private/plasma/qmldir
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/marble/COPYING-CMAKE-SCRIPTS
-/usr/share/doc/marble/COPYING.DOC
-/usr/share/doc/marble/LICENSE.GPL-3
-/usr/share/doc/marble/LICENSE.txt
-/usr/share/doc/marble/src_3rdparty_o5mreader_LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/marble/COPYING-CMAKE-SCRIPTS
+/usr/share/package-licenses/marble/COPYING.DOC
+/usr/share/package-licenses/marble/LICENSE.GPL-3
+/usr/share/package-licenses/marble/LICENSE.txt
+/usr/share/package-licenses/marble/src_3rdparty_o5mreader_LICENSE
+/usr/share/package-licenses/marble/tools_vectorosm-tilecreator_clipper_License.txt
 
-%files locales -f marble.lang -f plasma_applet_org.kde.plasma.worldclock.lang -f plasma_runner_marble.lang -f plasma_wallpaper_org.kde.plasma.worldmap.lang
+%files locales -f marble.lang -f plasma_runner_marble.lang -f plasma_applet_org.kde.plasma.worldclock.lang -f plasma_wallpaper_org.kde.plasma.worldmap.lang
 %defattr(-,root,root,-)
 
