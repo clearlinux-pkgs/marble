@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : marble
-Version  : 18.12.2
-Release  : 4
-URL      : https://download.kde.org/stable/applications/18.12.2/src/marble-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/marble-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/marble-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 5
+URL      : https://download.kde.org/stable/applications/18.12.3/src/marble-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/marble-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/marble-18.12.3.tar.xz.sig
 Summary  : Desktop Globe
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 MIT
@@ -61,6 +61,7 @@ Requires: marble-lib = %{version}-%{release}
 Requires: marble-bin = %{version}-%{release}
 Requires: marble-data = %{version}-%{release}
 Provides: marble-devel = %{version}-%{release}
+Requires: marble = %{version}-%{release}
 
 %description dev
 dev components for the marble package.
@@ -101,22 +102,23 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-18.12.2
+%setup -q -n marble-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549909511
+export SOURCE_DATE_EPOCH=1552016647
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549909511
+export SOURCE_DATE_EPOCH=1552016647
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/COPYING-CMAKE-SCRIPTS
