@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : marble
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/marble-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/marble-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/marble-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.0/src/marble-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/marble-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/marble-19.04.0.tar.xz.sig
 Summary  : Desktop Globe
 Group    : Development/Tools
-License  : BSD-3-Clause BSL-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 MIT
+License  : BSD-3-Clause BSL-1.0 CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 LGPL-3.0 MIT
 Requires: marble-bin = %{version}-%{release}
 Requires: marble-data = %{version}-%{release}
 Requires: marble-lib = %{version}-%{release}
@@ -102,30 +102,31 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-18.12.3
+%setup -q -n marble-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552016647
+export SOURCE_DATE_EPOCH=1555861551
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552016647
+export SOURCE_DATE_EPOCH=1555861551
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/COPYING-CMAKE-SCRIPTS
 cp COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/COPYING.DOC
 cp LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/LICENSE.GPL-3
 cp LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/LICENSE.txt
+cp data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/data_bitmaps_osmcarto_LICENSE.txt
 cp src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/src_3rdparty_o5mreader_LICENSE
+cp src/plugins/render/license/License.cpp %{buildroot}/usr/share/package-licenses/marble/src_plugins_render_license_License.cpp
 cp tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/tools_vectorosm-tilecreator_clipper_License.txt
 pushd clr-build
 %make_install
@@ -1501,6 +1502,7 @@ popd
 /usr/share/marble/data/weather/wind-arrows.svgz
 /usr/share/metainfo/org.kde.marble.appdata.xml
 /usr/share/metainfo/org.kde.plasma.worldclock.appdata.xml
+/usr/share/metainfo/org.kde.plasma.worldmap.appdata.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/config.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/main.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/ui/configMapDisplay.qml
@@ -1694,11 +1696,6 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
-/usr/share/doc/HTML/ca/marble/configure-cacheproxy.png
-/usr/share/doc/HTML/ca/marble/configure-navigation.png
-/usr/share/doc/HTML/ca/marble/configure-plugins.png
-/usr/share/doc/HTML/ca/marble/configure-routing.png
-/usr/share/doc/HTML/ca/marble/configure-view.png
 /usr/share/doc/HTML/ca/marble/index.cache.bz2
 /usr/share/doc/HTML/ca/marble/index.docbook
 /usr/share/doc/HTML/de/marble/configure-cacheproxy.png
@@ -1943,7 +1940,9 @@ popd
 /usr/share/package-licenses/marble/COPYING.DOC
 /usr/share/package-licenses/marble/LICENSE.GPL-3
 /usr/share/package-licenses/marble/LICENSE.txt
+/usr/share/package-licenses/marble/data_bitmaps_osmcarto_LICENSE.txt
 /usr/share/package-licenses/marble/src_3rdparty_o5mreader_LICENSE
+/usr/share/package-licenses/marble/src_plugins_render_license_License.cpp
 /usr/share/package-licenses/marble/tools_vectorosm-tilecreator_clipper_License.txt
 
 %files locales -f marble.lang -f plasma_runner_marble.lang -f plasma_applet_org.kde.plasma.worldclock.lang -f plasma_wallpaper_org.kde.plasma.worldmap.lang
