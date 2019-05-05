@@ -6,7 +6,7 @@
 #
 Name     : marble
 Version  : 19.04.0
-Release  : 6
+Release  : 7
 URL      : https://download.kde.org/stable/applications/19.04.0/src/marble-19.04.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/19.04.0/src/marble-19.04.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/19.04.0/src/marble-19.04.0.tar.xz.sig
@@ -109,15 +109,22 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555861551
+export SOURCE_DATE_EPOCH=1557042485
 mkdir -p clr-build
 pushd clr-build
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555861551
+export SOURCE_DATE_EPOCH=1557042485
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/COPYING-CMAKE-SCRIPTS
@@ -127,6 +134,7 @@ cp LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/LICENSE.txt
 cp data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/data_bitmaps_osmcarto_LICENSE.txt
 cp src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/src_3rdparty_o5mreader_LICENSE
 cp src/plugins/render/license/License.cpp %{buildroot}/usr/share/package-licenses/marble/src_plugins_render_license_License.cpp
+cp src/plugins/render/license/License.h %{buildroot}/usr/share/package-licenses/marble/src_plugins_render_license_License.h
 cp tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/tools_vectorosm-tilecreator_clipper_License.txt
 pushd clr-build
 %make_install
@@ -1943,6 +1951,7 @@ popd
 /usr/share/package-licenses/marble/data_bitmaps_osmcarto_LICENSE.txt
 /usr/share/package-licenses/marble/src_3rdparty_o5mreader_LICENSE
 /usr/share/package-licenses/marble/src_plugins_render_license_License.cpp
+/usr/share/package-licenses/marble/src_plugins_render_license_License.h
 /usr/share/package-licenses/marble/tools_vectorosm-tilecreator_clipper_License.txt
 
 %files locales -f marble.lang -f plasma_runner_marble.lang -f plasma_applet_org.kde.plasma.worldclock.lang -f plasma_wallpaper_org.kde.plasma.worldmap.lang
