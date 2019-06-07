@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : marble
-Version  : 19.04.1
-Release  : 8
-URL      : https://download.kde.org/stable/applications/19.04.1/src/marble-19.04.1.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.1/src/marble-19.04.1.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.1/src/marble-19.04.1.tar.xz.sig
+Version  : 19.04.2
+Release  : 9
+URL      : https://download.kde.org/stable/applications/19.04.2/src/marble-19.04.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.2/src/marble-19.04.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.2/src/marble-19.04.2.tar.xz.sig
 Summary  : Desktop Globe
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 LGPL-3.0 MIT
@@ -103,14 +103,14 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-19.04.1
+%setup -q -n marble-19.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557462872
+export SOURCE_DATE_EPOCH=1559908867
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -125,7 +125,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557462872
+export SOURCE_DATE_EPOCH=1559908867
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/COPYING-CMAKE-SCRIPTS
@@ -1512,6 +1512,7 @@ popd
 /usr/share/metainfo/org.kde.marble.appdata.xml
 /usr/share/metainfo/org.kde.plasma.worldclock.appdata.xml
 /usr/share/metainfo/org.kde.plasma.worldmap.appdata.xml
+/usr/share/mime-packages/geo.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/config.qml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/main.xml
 /usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/ui/configMapDisplay.qml
