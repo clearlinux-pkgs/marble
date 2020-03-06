@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : marble
-Version  : 19.12.2
-Release  : 19
-URL      : https://download.kde.org/stable/release-service/19.12.2/src/marble-19.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.2/src/marble-19.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.2/src/marble-19.12.2.tar.xz.sig
+Version  : 19.12.3
+Release  : 20
+URL      : https://download.kde.org/stable/release-service/19.12.3/src/marble-19.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.3/src/marble-19.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.3/src/marble-19.12.3.tar.xz.sig
 Summary  : Desktop Globe
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 LGPL-3.0 MIT
@@ -103,15 +103,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-19.12.2
-cd %{_builddir}/marble-19.12.2
+%setup -q -n marble-19.12.3
+cd %{_builddir}/marble-19.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581037684
+export SOURCE_DATE_EPOCH=1583520688
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -128,18 +128,18 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1581037684
+export SOURCE_DATE_EPOCH=1583520688
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
-cp %{_builddir}/marble-19.12.2/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/marble-19.12.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/marble-19.12.2/LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/842745cb706f8f2126506f544492f7a80dbe29b3
-cp %{_builddir}/marble-19.12.2/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/9b85885bc9763d2dc7135d6eaafef62fed70ccbc
-cp %{_builddir}/marble-19.12.2/data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/2b694eee28c81631ba379f9234a87e41bfa87a30
-cp %{_builddir}/marble-19.12.2/src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/1fd24bfd5341b8cac234cb1b30ce767f936adbe0
-cp %{_builddir}/marble-19.12.2/src/plugins/render/license/License.cpp %{buildroot}/usr/share/package-licenses/marble/d1988c4de01ac1a633043fbd1588c1e7e0eed6e0
-cp %{_builddir}/marble-19.12.2/src/plugins/render/license/License.h %{buildroot}/usr/share/package-licenses/marble/a2274db5db66ea15c77317d3ef05c46b42fed49f
-cp %{_builddir}/marble-19.12.2/tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/35389b4e956b92d896810f7c4a3e77485346e54a
+cp %{_builddir}/marble-19.12.3/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/marble-19.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/marble-19.12.3/LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/842745cb706f8f2126506f544492f7a80dbe29b3
+cp %{_builddir}/marble-19.12.3/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/9b85885bc9763d2dc7135d6eaafef62fed70ccbc
+cp %{_builddir}/marble-19.12.3/data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/2b694eee28c81631ba379f9234a87e41bfa87a30
+cp %{_builddir}/marble-19.12.3/src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/1fd24bfd5341b8cac234cb1b30ce767f936adbe0
+cp %{_builddir}/marble-19.12.3/src/plugins/render/license/License.cpp %{buildroot}/usr/share/package-licenses/marble/d1988c4de01ac1a633043fbd1588c1e7e0eed6e0
+cp %{_builddir}/marble-19.12.3/src/plugins/render/license/License.h %{buildroot}/usr/share/package-licenses/marble/a2274db5db66ea15c77317d3ef05c46b42fed49f
+cp %{_builddir}/marble-19.12.3/tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/35389b4e956b92d896810f7c4a3e77485346e54a
 pushd clr-build
 %make_install
 popd
