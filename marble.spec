@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : marble
-Version  : 20.08.3
-Release  : 27
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/marble-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/marble-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/marble-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 28
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/marble-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/marble-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/marble-20.12.0.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 LGPL-3.0 MIT
@@ -104,15 +104,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-20.08.3
-cd %{_builddir}/marble-20.08.3
+%setup -q -n marble-20.12.0
+cd %{_builddir}/marble-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604618258
+export SOURCE_DATE_EPOCH=1607729932
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,17 +128,17 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604618258
+export SOURCE_DATE_EPOCH=1607729932
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
-cp %{_builddir}/marble-20.08.3/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/marble-20.08.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/marble-20.08.3/LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/842745cb706f8f2126506f544492f7a80dbe29b3
-cp %{_builddir}/marble-20.08.3/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/9b85885bc9763d2dc7135d6eaafef62fed70ccbc
-cp %{_builddir}/marble-20.08.3/data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/2b694eee28c81631ba379f9234a87e41bfa87a30
-cp %{_builddir}/marble-20.08.3/src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/1fd24bfd5341b8cac234cb1b30ce767f936adbe0
-cp %{_builddir}/marble-20.08.3/src/plugins/render/license/License.h %{buildroot}/usr/share/package-licenses/marble/a2274db5db66ea15c77317d3ef05c46b42fed49f
-cp %{_builddir}/marble-20.08.3/tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/35389b4e956b92d896810f7c4a3e77485346e54a
+cp %{_builddir}/marble-20.12.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/marble-20.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/marble-20.12.0/LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/842745cb706f8f2126506f544492f7a80dbe29b3
+cp %{_builddir}/marble-20.12.0/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/9b85885bc9763d2dc7135d6eaafef62fed70ccbc
+cp %{_builddir}/marble-20.12.0/data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/2b694eee28c81631ba379f9234a87e41bfa87a30
+cp %{_builddir}/marble-20.12.0/src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/1fd24bfd5341b8cac234cb1b30ce767f936adbe0
+cp %{_builddir}/marble-20.12.0/src/plugins/render/license/License.h %{buildroot}/usr/share/package-licenses/marble/a2274db5db66ea15c77317d3ef05c46b42fed49f
+cp %{_builddir}/marble-20.12.0/tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/35389b4e956b92d896810f7c4a3e77485346e54a
 pushd clr-build
 %make_install
 popd
@@ -172,6 +172,7 @@ popd
 /usr/share/icons/hicolor/32x32/apps/marble.png
 /usr/share/icons/hicolor/48x48/apps/marble.png
 /usr/share/icons/hicolor/64x64/apps/marble.png
+/usr/share/knsrcfiles/marble.knsrc
 /usr/share/kservices5/marble_part.desktop
 /usr/share/kservices5/marble_thumbnail_geojson.desktop
 /usr/share/kservices5/marble_thumbnail_gpx.desktop
@@ -1529,7 +1530,6 @@ popd
 /usr/share/plasma/wallpapers/org.kde.plasma.worldmap/contents/ui/main.qml
 /usr/share/plasma/wallpapers/org.kde.plasma.worldmap/metadata.desktop
 /usr/share/plasma/wallpapers/org.kde.plasma.worldmap/metadata.json
-/usr/share/xdg/marble.knsrc
 
 %files dev
 %defattr(-,root,root,-)
@@ -1560,6 +1560,7 @@ popd
 /usr/include/marble/DownloadRegionDialog.h
 /usr/include/marble/EditPlacemarkDialog.h
 /usr/include/marble/ElevationModel.h
+/usr/include/marble/FileManager.h
 /usr/include/marble/FileViewWidget.h
 /usr/include/marble/FlyToEditWidget.h
 /usr/include/marble/FormattedTextWidget.h
@@ -1881,69 +1882,69 @@ popd
 /usr/lib64/libastro.so.1
 /usr/lib64/libmarblewidget-qt5.so.0.28.0
 /usr/lib64/libmarblewidget-qt5.so.28
-/usr/lib64/marble/plugins/libAnnotatePlugin.so
-/usr/lib64/marble/plugins/libAprsPlugin.so
-/usr/lib64/marble/plugins/libAtmospherePlugin.so
-/usr/lib64/marble/plugins/libCachePlugin.so
-/usr/lib64/marble/plugins/libCompassFloatItem.so
-/usr/lib64/marble/plugins/libCrosshairsPlugin.so
-/usr/lib64/marble/plugins/libCycleStreetsPlugin.so
-/usr/lib64/marble/plugins/libEarthquakePlugin.so
-/usr/lib64/marble/plugins/libEclipsesPlugin.so
-/usr/lib64/marble/plugins/libElevationProfileFloatItem.so
-/usr/lib64/marble/plugins/libElevationProfileMarker.so
-/usr/lib64/marble/plugins/libFlightGearPositionProviderPlugin.so
-/usr/lib64/marble/plugins/libFoursquarePlugin.so
-/usr/lib64/marble/plugins/libGeoUriPlugin.so
-/usr/lib64/marble/plugins/libGosmoreReverseGeocodingPlugin.so
-/usr/lib64/marble/plugins/libGosmoreRoutingPlugin.so
-/usr/lib64/marble/plugins/libGpsInfo.so
-/usr/lib64/marble/plugins/libGpsbabelPlugin.so
-/usr/lib64/marble/plugins/libGpxPlugin.so
-/usr/lib64/marble/plugins/libGraticulePlugin.so
-/usr/lib64/marble/plugins/libHostipPlugin.so
-/usr/lib64/marble/plugins/libJsonPlugin.so
-/usr/lib64/marble/plugins/libKmlPlugin.so
-/usr/lib64/marble/plugins/libLatLonPlugin.so
-/usr/lib64/marble/plugins/libLicense.so
-/usr/lib64/marble/plugins/libLocalDatabasePlugin.so
-/usr/lib64/marble/plugins/libLocalOsmSearchPlugin.so
-/usr/lib64/marble/plugins/libLogPlugin.so
-/usr/lib64/marble/plugins/libMapQuestPlugin.so
-/usr/lib64/marble/plugins/libMapScaleFloatItem.so
-/usr/lib64/marble/plugins/libMeasureTool.so
-/usr/lib64/marble/plugins/libMonavPlugin.so
-/usr/lib64/marble/plugins/libNavigationFloatItem.so
-/usr/lib64/marble/plugins/libNominatimReverseGeocodingPlugin.so
-/usr/lib64/marble/plugins/libNominatimSearchPlugin.so
-/usr/lib64/marble/plugins/libNotesPlugin.so
-/usr/lib64/marble/plugins/libOSRMPlugin.so
-/usr/lib64/marble/plugins/libOpenDesktopPlugin.so
-/usr/lib64/marble/plugins/libOpenLocationCodeSearchPlugin.so
-/usr/lib64/marble/plugins/libOpenRouteServicePlugin.so
-/usr/lib64/marble/plugins/libOsmPlugin.so
-/usr/lib64/marble/plugins/libOverviewMap.so
-/usr/lib64/marble/plugins/libPhoto.so
-/usr/lib64/marble/plugins/libPn2Plugin.so
-/usr/lib64/marble/plugins/libPntPlugin.so
-/usr/lib64/marble/plugins/libPositionMarker.so
-/usr/lib64/marble/plugins/libPostalCode.so
-/usr/lib64/marble/plugins/libProgressFloatItem.so
-/usr/lib64/marble/plugins/libQtPositioningPositionProviderPlugin.so
-/usr/lib64/marble/plugins/libRoutingPlugin.so
-/usr/lib64/marble/plugins/libRoutinoPlugin.so
-/usr/lib64/marble/plugins/libSatellitesPlugin.so
-/usr/lib64/marble/plugins/libSpeedometer.so
-/usr/lib64/marble/plugins/libStarsPlugin.so
-/usr/lib64/marble/plugins/libSunPlugin.so
-/usr/lib64/marble/plugins/libWeather.so
-/usr/lib64/marble/plugins/libWikipedia.so
-/usr/lib64/marble/plugins/libYoursPlugin.so
-/usr/lib64/plugins/designer/libLatLonEditPlugin.so
-/usr/lib64/plugins/designer/libMarbleNavigatorPlugin.so
-/usr/lib64/plugins/designer/libMarbleWidgetPlugin.so
+/usr/lib64/marble/plugins/AnnotatePlugin.so
+/usr/lib64/marble/plugins/AprsPlugin.so
+/usr/lib64/marble/plugins/AtmospherePlugin.so
+/usr/lib64/marble/plugins/CachePlugin.so
+/usr/lib64/marble/plugins/CompassFloatItem.so
+/usr/lib64/marble/plugins/CrosshairsPlugin.so
+/usr/lib64/marble/plugins/CycleStreetsPlugin.so
+/usr/lib64/marble/plugins/EarthquakePlugin.so
+/usr/lib64/marble/plugins/EclipsesPlugin.so
+/usr/lib64/marble/plugins/ElevationProfileFloatItem.so
+/usr/lib64/marble/plugins/ElevationProfileMarker.so
+/usr/lib64/marble/plugins/FlightGearPositionProviderPlugin.so
+/usr/lib64/marble/plugins/FoursquarePlugin.so
+/usr/lib64/marble/plugins/GeoUriPlugin.so
+/usr/lib64/marble/plugins/GosmoreReverseGeocodingPlugin.so
+/usr/lib64/marble/plugins/GosmoreRoutingPlugin.so
+/usr/lib64/marble/plugins/GpsInfo.so
+/usr/lib64/marble/plugins/GpsbabelPlugin.so
+/usr/lib64/marble/plugins/GpxPlugin.so
+/usr/lib64/marble/plugins/GraticulePlugin.so
+/usr/lib64/marble/plugins/HostipPlugin.so
+/usr/lib64/marble/plugins/JsonPlugin.so
+/usr/lib64/marble/plugins/KmlPlugin.so
+/usr/lib64/marble/plugins/LatLonPlugin.so
+/usr/lib64/marble/plugins/License.so
+/usr/lib64/marble/plugins/LocalDatabasePlugin.so
+/usr/lib64/marble/plugins/LocalOsmSearchPlugin.so
+/usr/lib64/marble/plugins/LogPlugin.so
+/usr/lib64/marble/plugins/MapQuestPlugin.so
+/usr/lib64/marble/plugins/MapScaleFloatItem.so
+/usr/lib64/marble/plugins/MeasureTool.so
+/usr/lib64/marble/plugins/MonavPlugin.so
+/usr/lib64/marble/plugins/NavigationFloatItem.so
+/usr/lib64/marble/plugins/NominatimReverseGeocodingPlugin.so
+/usr/lib64/marble/plugins/NominatimSearchPlugin.so
+/usr/lib64/marble/plugins/NotesPlugin.so
+/usr/lib64/marble/plugins/OSRMPlugin.so
+/usr/lib64/marble/plugins/OpenDesktopPlugin.so
+/usr/lib64/marble/plugins/OpenLocationCodeSearchPlugin.so
+/usr/lib64/marble/plugins/OpenRouteServicePlugin.so
+/usr/lib64/marble/plugins/OsmPlugin.so
+/usr/lib64/marble/plugins/OverviewMap.so
+/usr/lib64/marble/plugins/Photo.so
+/usr/lib64/marble/plugins/Pn2Plugin.so
+/usr/lib64/marble/plugins/PntPlugin.so
+/usr/lib64/marble/plugins/PositionMarker.so
+/usr/lib64/marble/plugins/PostalCode.so
+/usr/lib64/marble/plugins/ProgressFloatItem.so
+/usr/lib64/marble/plugins/QtPositioningPositionProviderPlugin.so
+/usr/lib64/marble/plugins/RoutingPlugin.so
+/usr/lib64/marble/plugins/RoutinoPlugin.so
+/usr/lib64/marble/plugins/SatellitesPlugin.so
+/usr/lib64/marble/plugins/Speedometer.so
+/usr/lib64/marble/plugins/StarsPlugin.so
+/usr/lib64/marble/plugins/SunPlugin.so
+/usr/lib64/marble/plugins/Weather.so
+/usr/lib64/marble/plugins/Wikipedia.so
+/usr/lib64/marble/plugins/YoursPlugin.so
+/usr/lib64/plugins/designer/LatLonEditPlugin.so
+/usr/lib64/plugins/designer/MarbleNavigatorPlugin.so
+/usr/lib64/plugins/designer/MarbleWidgetPlugin.so
 /usr/lib64/qt5/plugins/libmarble_part.so
-/usr/lib64/qt5/plugins/libmarblethumbnail.so
+/usr/lib64/qt5/plugins/marblethumbnail.so
 /usr/lib64/qt5/plugins/plasma_runner_marble.so
 /usr/lib64/qt5/qml/org/kde/marble/private/plasma/libmarblequick.so
 /usr/lib64/qt5/qml/org/kde/marble/private/plasma/qmldir
