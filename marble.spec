@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : marble
-Version  : 21.04.0
-Release  : 31
-URL      : https://download.kde.org/stable/release-service/21.04.0/src/marble-21.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.0/src/marble-21.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.0/src/marble-21.04.0.tar.xz.sig
+Version  : 21.04.2
+Release  : 32
+URL      : https://download.kde.org/stable/release-service/21.04.2/src/marble-21.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.2/src/marble-21.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.2/src/marble-21.04.2.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : BSD-3-Clause BSL-1.0 CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.1 LGPL-3.0 MIT
@@ -105,15 +105,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-21.04.0
-cd %{_builddir}/marble-21.04.0
+%setup -q -n marble-21.04.2
+cd %{_builddir}/marble-21.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1619227512
+export SOURCE_DATE_EPOCH=1623406381
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -129,17 +129,17 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1619227512
+export SOURCE_DATE_EPOCH=1623406381
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
-cp %{_builddir}/marble-21.04.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/marble-21.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/marble-21.04.0/LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/842745cb706f8f2126506f544492f7a80dbe29b3
-cp %{_builddir}/marble-21.04.0/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/9b85885bc9763d2dc7135d6eaafef62fed70ccbc
-cp %{_builddir}/marble-21.04.0/data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/2b694eee28c81631ba379f9234a87e41bfa87a30
-cp %{_builddir}/marble-21.04.0/src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/1fd24bfd5341b8cac234cb1b30ce767f936adbe0
-cp %{_builddir}/marble-21.04.0/src/plugins/render/license/License.h %{buildroot}/usr/share/package-licenses/marble/a2274db5db66ea15c77317d3ef05c46b42fed49f
-cp %{_builddir}/marble-21.04.0/tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/35389b4e956b92d896810f7c4a3e77485346e54a
+cp %{_builddir}/marble-21.04.2/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/marble/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/marble-21.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/marble-21.04.2/LICENSE.GPL-3 %{buildroot}/usr/share/package-licenses/marble/842745cb706f8f2126506f544492f7a80dbe29b3
+cp %{_builddir}/marble-21.04.2/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/9b85885bc9763d2dc7135d6eaafef62fed70ccbc
+cp %{_builddir}/marble-21.04.2/data/bitmaps/osmcarto/LICENSE.txt %{buildroot}/usr/share/package-licenses/marble/2b694eee28c81631ba379f9234a87e41bfa87a30
+cp %{_builddir}/marble-21.04.2/src/3rdparty/o5mreader/LICENSE %{buildroot}/usr/share/package-licenses/marble/1fd24bfd5341b8cac234cb1b30ce767f936adbe0
+cp %{_builddir}/marble-21.04.2/src/plugins/render/license/License.h %{buildroot}/usr/share/package-licenses/marble/a2274db5db66ea15c77317d3ef05c46b42fed49f
+cp %{_builddir}/marble-21.04.2/tools/vectorosm-tilecreator/clipper/License.txt %{buildroot}/usr/share/package-licenses/marble/35389b4e956b92d896810f7c4a3e77485346e54a
 pushd clr-build
 %make_install
 popd
@@ -185,6 +185,7 @@ popd
 /usr/share/kxmlgui5/marble/marble_part.rc
 /usr/share/kxmlgui5/marble/marbleui.rc
 /usr/share/locale/ar/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/be/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/bg/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/bs/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ca/LC_MESSAGES/marble_qt.qm
@@ -226,6 +227,7 @@ popd
 /usr/share/locale/pt_BR/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ro/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ru/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/se/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/sk/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/sl/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/sv/LC_MESSAGES/marble_qt.qm
