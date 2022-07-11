@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : marble
-Version  : 22.04.2
-Release  : 44
-URL      : https://download.kde.org/stable/release-service/22.04.2/src/marble-22.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.04.2/src/marble-22.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.04.2/src/marble-22.04.2.tar.xz.sig
+Version  : 22.04.3
+Release  : 45
+URL      : https://download.kde.org/stable/release-service/22.04.3/src/marble-22.04.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.3/src/marble-22.04.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.3/src/marble-22.04.3.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -104,15 +104,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-22.04.2
-cd %{_builddir}/marble-22.04.2
+%setup -q -n marble-22.04.3
+cd %{_builddir}/marble-22.04.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1654822639
+export SOURCE_DATE_EPOCH=1657555526
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,19 +128,19 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1654822639
+export SOURCE_DATE_EPOCH=1657555526
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
-cp %{_builddir}/marble-22.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/marble-22.04.2/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/marble/be561fe6eb626c2566b9a6c0885554b4ee4e6b74
-cp %{_builddir}/marble-22.04.2/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/marble/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/marble-22.04.2/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/marble/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-cp %{_builddir}/marble-22.04.2/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/marble/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/marble-22.04.2/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/marble/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-cp %{_builddir}/marble-22.04.2/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/marble/a4c60b3fefda228cd7439d3565df043192fef137
-cp %{_builddir}/marble-22.04.2/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/marble/fa05e58320cb7c64786b26396f4b992579a628bc
-cp %{_builddir}/marble-22.04.2/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/marble/49e61f7864169f2e356c11a17422d7d20d74b40f
-cp %{_builddir}/marble-22.04.2/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/marble/adadb67a9875aeeac285309f1eab6e47d9ee08a7
+cp %{_builddir}/marble-22.04.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/marble-22.04.3/LICENSES/Apache-2.0.txt %{buildroot}/usr/share/package-licenses/marble/be561fe6eb626c2566b9a6c0885554b4ee4e6b74
+cp %{_builddir}/marble-22.04.3/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/marble/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/marble-22.04.3/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/marble/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
+cp %{_builddir}/marble-22.04.3/LICENSES/GPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/marble/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/marble-22.04.3/LICENSES/GPL-3.0-or-later.txt %{buildroot}/usr/share/package-licenses/marble/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
+cp %{_builddir}/marble-22.04.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/marble/a4c60b3fefda228cd7439d3565df043192fef137
+cp %{_builddir}/marble-22.04.3/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/marble/fa05e58320cb7c64786b26396f4b992579a628bc
+cp %{_builddir}/marble-22.04.3/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/marble/49e61f7864169f2e356c11a17422d7d20d74b40f
+cp %{_builddir}/marble-22.04.3/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/marble/adadb67a9875aeeac285309f1eab6e47d9ee08a7
 pushd clr-build
 %make_install
 popd
@@ -208,6 +208,7 @@ popd
 /usr/share/locale/hi/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/hr/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/hu/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/id/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/is/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/it/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ja/LC_MESSAGES/marble_qt.qm
@@ -1900,8 +1901,8 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libastro.so.1
-/usr/lib64/libastro.so.22.4.2
-/usr/lib64/libmarblewidget-qt5.so.22.4.2
+/usr/lib64/libastro.so.22.4.3
+/usr/lib64/libmarblewidget-qt5.so.22.4.3
 /usr/lib64/libmarblewidget-qt5.so.28
 /usr/lib64/marble/plugins/AnnotatePlugin.so
 /usr/lib64/marble/plugins/AprsPlugin.so
