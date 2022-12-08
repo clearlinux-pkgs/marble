@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : marble
-Version  : 22.08.3
-Release  : 50
-URL      : https://download.kde.org/stable/release-service/22.08.3/src/marble-22.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.3/src/marble-22.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.3/src/marble-22.08.3.tar.xz.sig
+Version  : 22.12.0
+Release  : 51
+URL      : https://download.kde.org/stable/release-service/22.12.0/src/marble-22.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.0/src/marble-22.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.0/src/marble-22.12.0.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -104,15 +104,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-22.08.3
-cd %{_builddir}/marble-22.08.3
+%setup -q -n marble-22.12.0
+cd %{_builddir}/marble-22.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1667855970
+export SOURCE_DATE_EPOCH=1670510546
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1667855970
+export SOURCE_DATE_EPOCH=1670510546
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp %{_builddir}/marble-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -195,6 +195,7 @@ popd
 /usr/share/locale/da/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/de/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/el/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/en/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/en_GB/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/eo/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/es/LC_MESSAGES/marble_qt.qm
@@ -204,6 +205,7 @@ popd
 /usr/share/locale/fr/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ga/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/gl/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/gu/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/he/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/hi/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/hr/LC_MESSAGES/marble_qt.qm
@@ -212,6 +214,7 @@ popd
 /usr/share/locale/is/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/it/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ja/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/ka/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/kk/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/km/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ko/LC_MESSAGES/marble_qt.qm
@@ -223,6 +226,7 @@ popd
 /usr/share/locale/nds/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/nl/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/nn/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/oc/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/pa/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/pl/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/pt/LC_MESSAGES/marble_qt.qm
@@ -230,6 +234,7 @@ popd
 /usr/share/locale/ro/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/ru/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/se/LC_MESSAGES/marble_qt.qm
+/usr/share/locale/si/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/sk/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/sl/LC_MESSAGES/marble_qt.qm
 /usr/share/locale/sv/LC_MESSAGES/marble_qt.qm
@@ -1901,8 +1906,8 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libastro.so.1
-/usr/lib64/libastro.so.22.8.3
-/usr/lib64/libmarblewidget-qt5.so.22.8.3
+/usr/lib64/libastro.so.22.12.0
+/usr/lib64/libmarblewidget-qt5.so.22.12.0
 /usr/lib64/libmarblewidget-qt5.so.28
 /usr/lib64/marble/plugins/AnnotatePlugin.so
 /usr/lib64/marble/plugins/AprsPlugin.so
