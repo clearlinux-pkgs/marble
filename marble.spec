@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : marble
-Version  : 22.12.2
-Release  : 55
-URL      : https://download.kde.org/stable/release-service/22.12.2/src/marble-22.12.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.12.2/src/marble-22.12.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.12.2/src/marble-22.12.2.tar.xz.sig
+Version  : 22.12.3
+Release  : 56
+URL      : https://download.kde.org/stable/release-service/22.12.3/src/marble-22.12.3.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.12.3/src/marble-22.12.3.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.12.3/src/marble-22.12.3.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -104,15 +104,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-22.12.2
-cd %{_builddir}/marble-22.12.2
+%setup -q -n marble-22.12.3
+cd %{_builddir}/marble-22.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676865084
+export SOURCE_DATE_EPOCH=1677776253
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -128,7 +128,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1676865084
+export SOURCE_DATE_EPOCH=1677776253
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp %{_builddir}/marble-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -1906,8 +1906,8 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libastro.so.1
-/usr/lib64/libastro.so.22.12.2
-/usr/lib64/libmarblewidget-qt5.so.22.12.2
+/usr/lib64/libastro.so.22.12.3
+/usr/lib64/libmarblewidget-qt5.so.22.12.3
 /usr/lib64/libmarblewidget-qt5.so.28
 /usr/lib64/marble/plugins/AnnotatePlugin.so
 /usr/lib64/marble/plugins/AprsPlugin.so
