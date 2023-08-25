@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : marble
-Version  : 23.04.3
-Release  : 62
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/marble-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/marble-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/marble-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 63
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -106,15 +106,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-23.04.3
-cd %{_builddir}/marble-23.04.3
+%setup -q -n marble-23.08.0
+cd %{_builddir}/marble-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688836820
+export SOURCE_DATE_EPOCH=1693005673
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -147,7 +147,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1688836820
+export SOURCE_DATE_EPOCH=1693005673
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp %{_builddir}/marble-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -1061,10 +1061,6 @@ popd
 /usr/share/marble/data/maps/earth/schagen1689/schagen1689-preview.png
 /usr/share/marble/data/maps/earth/schagen1689/schagen1689.dgml
 /usr/share/marble/data/maps/earth/schagen1689/schagen1689.jpg
-/usr/share/marble/data/maps/earth/sentinel2/0/0/0.jpg
-/usr/share/marble/data/maps/earth/sentinel2/legend.html
-/usr/share/marble/data/maps/earth/sentinel2/sentinel2-preview.png
-/usr/share/marble/data/maps/earth/sentinel2/sentinel2.dgml
 /usr/share/marble/data/maps/earth/srtm/0/000000/000000_000000.jpg
 /usr/share/marble/data/maps/earth/srtm/0/000000/000000_000001.jpg
 /usr/share/marble/data/maps/earth/srtm/1/000000/000000_000000.jpg
@@ -1932,8 +1928,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libastro.so.23.4.3
-/V3/usr/lib64/libmarblewidget-qt5.so.23.4.3
+/V3/usr/lib64/libastro.so.23.8.0
+/V3/usr/lib64/libmarblewidget-qt5.so.23.8.0
 /V3/usr/lib64/marble/plugins/AnnotatePlugin.so
 /V3/usr/lib64/marble/plugins/AprsPlugin.so
 /V3/usr/lib64/marble/plugins/AtmospherePlugin.so
@@ -2000,8 +1996,8 @@ popd
 /V3/usr/lib64/qt5/plugins/marblethumbnail.so
 /V3/usr/lib64/qt5/qml/org/kde/marble/private/plasma/libmarblequick.so
 /usr/lib64/libastro.so.1
-/usr/lib64/libastro.so.23.4.3
-/usr/lib64/libmarblewidget-qt5.so.23.4.3
+/usr/lib64/libastro.so.23.8.0
+/usr/lib64/libmarblewidget-qt5.so.23.8.0
 /usr/lib64/libmarblewidget-qt5.so.28
 /usr/lib64/marble/plugins/AnnotatePlugin.so
 /usr/lib64/marble/plugins/AprsPlugin.so
