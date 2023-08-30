@@ -7,7 +7,7 @@
 #
 Name     : marble
 Version  : 23.08.0
-Release  : 64
+Release  : 65
 URL      : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz.sig
@@ -114,7 +114,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693005673
+export SOURCE_DATE_EPOCH=1693414932
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -147,7 +147,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1693005673
+export SOURCE_DATE_EPOCH=1693414932
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp %{_builddir}/marble-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -1673,10 +1673,11 @@ popd
 /usr/include/marble/MarbleMath.h
 /usr/include/marble/MarbleModel.h
 /usr/include/marble/MarbleNavigator.h
-/usr/include/marble/MarbleWebView.h
 /usr/include/marble/MarbleWidget.h
 /usr/include/marble/MarbleWidgetInputHandler.h
 /usr/include/marble/MarbleWidgetPopupMenu.h
+/usr/include/marble/NullMarbleWebView.h
+/usr/include/marble/NullTinyWebBrowser.h
 /usr/include/marble/OsmcSymbol.h
 /usr/include/marble/ParseRunnerPlugin.h
 /usr/include/marble/ParsingRunner.h
@@ -1721,7 +1722,6 @@ popd
 /usr/include/marble/TileCreatorDialog.h
 /usr/include/marble/TileId.h
 /usr/include/marble/TileLevelRangeWidget.h
-/usr/include/marble/TinyWebBrowser.h
 /usr/include/marble/TourControlEditWidget.h
 /usr/include/marble/TourItemDelegate.h
 /usr/include/marble/TourPlayback.h
@@ -1967,12 +1967,10 @@ popd
 /V3/usr/lib64/marble/plugins/NominatimSearchPlugin.so
 /V3/usr/lib64/marble/plugins/NotesPlugin.so
 /V3/usr/lib64/marble/plugins/OSRMPlugin.so
-/V3/usr/lib64/marble/plugins/OpenDesktopPlugin.so
 /V3/usr/lib64/marble/plugins/OpenLocationCodeSearchPlugin.so
 /V3/usr/lib64/marble/plugins/OpenRouteServicePlugin.so
 /V3/usr/lib64/marble/plugins/OsmPlugin.so
 /V3/usr/lib64/marble/plugins/OverviewMap.so
-/V3/usr/lib64/marble/plugins/Photo.so
 /V3/usr/lib64/marble/plugins/Pn2Plugin.so
 /V3/usr/lib64/marble/plugins/PntPlugin.so
 /V3/usr/lib64/marble/plugins/PositionMarker.so
@@ -1985,8 +1983,6 @@ popd
 /V3/usr/lib64/marble/plugins/Speedometer.so
 /V3/usr/lib64/marble/plugins/StarsPlugin.so
 /V3/usr/lib64/marble/plugins/SunPlugin.so
-/V3/usr/lib64/marble/plugins/Weather.so
-/V3/usr/lib64/marble/plugins/Wikipedia.so
 /V3/usr/lib64/marble/plugins/YoursPlugin.so
 /V3/usr/lib64/plugins/designer/LatLonEditPlugin.so
 /V3/usr/lib64/plugins/designer/MarbleNavigatorPlugin.so
@@ -2036,12 +2032,10 @@ popd
 /usr/lib64/marble/plugins/NominatimSearchPlugin.so
 /usr/lib64/marble/plugins/NotesPlugin.so
 /usr/lib64/marble/plugins/OSRMPlugin.so
-/usr/lib64/marble/plugins/OpenDesktopPlugin.so
 /usr/lib64/marble/plugins/OpenLocationCodeSearchPlugin.so
 /usr/lib64/marble/plugins/OpenRouteServicePlugin.so
 /usr/lib64/marble/plugins/OsmPlugin.so
 /usr/lib64/marble/plugins/OverviewMap.so
-/usr/lib64/marble/plugins/Photo.so
 /usr/lib64/marble/plugins/Pn2Plugin.so
 /usr/lib64/marble/plugins/PntPlugin.so
 /usr/lib64/marble/plugins/PositionMarker.so
@@ -2054,8 +2048,6 @@ popd
 /usr/lib64/marble/plugins/Speedometer.so
 /usr/lib64/marble/plugins/StarsPlugin.so
 /usr/lib64/marble/plugins/SunPlugin.so
-/usr/lib64/marble/plugins/Weather.so
-/usr/lib64/marble/plugins/Wikipedia.so
 /usr/lib64/marble/plugins/YoursPlugin.so
 /usr/lib64/plugins/designer/LatLonEditPlugin.so
 /usr/lib64/plugins/designer/MarbleNavigatorPlugin.so
