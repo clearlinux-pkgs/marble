@@ -7,7 +7,7 @@
 #
 Name     : marble
 Version  : 23.08.1
-Release  : 68
+Release  : 69
 URL      : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz.sig
@@ -115,7 +115,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695060601
+export SOURCE_DATE_EPOCH=1695061542
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -148,7 +148,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1695060601
+export SOURCE_DATE_EPOCH=1695061542
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp %{_builddir}/marble-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -1566,7 +1566,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmarbledeclarative.so
 /usr/include/astro/astr2lib.h
 /usr/include/astro/astro_version.h
 /usr/include/astro/astrolib.h
@@ -1742,9 +1741,6 @@ popd
 /usr/lib64/cmake/Marble/MarbleConfigVersion.cmake
 /usr/lib64/cmake/Marble/MarbleTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/Marble/MarbleTargets.cmake
-/usr/lib64/libastro.so
-/usr/lib64/libmarbledeclarative.so
-/usr/lib64/libmarblewidget-qt5.so
 /usr/lib64/qt5/mkspecs/modules/qt_Marble.pri
 
 %files doc
@@ -1930,6 +1926,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /V3/usr/lib64/libastro.so.23.8.1
+/V3/usr/lib64/libmarbledeclarative.so
 /V3/usr/lib64/libmarblewidget-qt5.so.23.8.1
 /V3/usr/lib64/marble/plugins/AnnotatePlugin.so
 /V3/usr/lib64/marble/plugins/AprsPlugin.so
@@ -1997,8 +1994,11 @@ popd
 /V3/usr/lib64/qt5/plugins/libmarble_part.so
 /V3/usr/lib64/qt5/plugins/marblethumbnail.so
 /V3/usr/lib64/qt5/qml/org/kde/marble/private/plasma/libmarblequick.so
+/usr/lib64/libastro.so
 /usr/lib64/libastro.so.1
 /usr/lib64/libastro.so.23.8.1
+/usr/lib64/libmarbledeclarative.so
+/usr/lib64/libmarblewidget-qt5.so
 /usr/lib64/libmarblewidget-qt5.so.23.8.1
 /usr/lib64/libmarblewidget-qt5.so.28
 /usr/lib64/marble/plugins/AnnotatePlugin.so
