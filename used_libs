@@ -26,6 +26,7 @@ libQt5Widgets.so.5
 libQt5Xml.so.5
 libc.so.6
 libgcc_s.so.1
+libgps.so.30
 libm.so.6
 libphonon4qt5.so.4
 libprotobuf.so.32
