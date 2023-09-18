@@ -6,18 +6,17 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : marble
-Version  : 23.08.0
-Release  : 65
-URL      : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.0/src/marble-23.08.0.tar.xz.sig
+Version  : 23.08.1
+Release  : 66
+URL      : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
 Requires: marble-bin = %{version}-%{release}
 Requires: marble-data = %{version}-%{release}
 Requires: marble-lib = %{version}-%{release}
-Requires: marble-license = %{version}-%{release}
 Requires: marble-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
@@ -44,7 +43,6 @@ headers in the source code files for detailed license information.
 Summary: bin components for the marble package.
 Group: Binaries
 Requires: marble-data = %{version}-%{release}
-Requires: marble-license = %{version}-%{release}
 
 %description bin
 bin components for the marble package.
@@ -83,18 +81,9 @@ doc components for the marble package.
 Summary: lib components for the marble package.
 Group: Libraries
 Requires: marble-data = %{version}-%{release}
-Requires: marble-license = %{version}-%{release}
 
 %description lib
 lib components for the marble package.
-
-
-%package license
-Summary: license components for the marble package.
-Group: Default
-
-%description license
-license components for the marble package.
 
 
 %package locales
@@ -106,15 +95,15 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-23.08.0
-cd %{_builddir}/marble-23.08.0
+%setup -q -n marble-23.08.1
+cd %{_builddir}/marble-23.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1693414932
+export SOURCE_DATE_EPOCH=1695053776
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -147,7 +136,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1693414932
+export SOURCE_DATE_EPOCH=1695053776
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp %{_builddir}/marble-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -176,6 +165,7 @@ popd
 
 %files
 %defattr(-,root,root,-)
+/
 
 %files bin
 %defattr(-,root,root,-)
@@ -207,8 +197,6 @@ popd
 /usr/share/kservices5/marble_thumbnail_kml.desktop
 /usr/share/kservices5/marble_thumbnail_kmz.desktop
 /usr/share/kservices5/marble_thumbnail_osm.desktop
-/usr/share/kservices5/plasma-applet-org.kde.plasma.worldclock.desktop
-/usr/share/kservices5/plasma-wallpaper-org.kde.plasma.worldmap.desktop
 /usr/share/kxmlgui5/marble/marble_part.rc
 /usr/share/kxmlgui5/marble/marbleui.rc
 /usr/share/locale/ar/LC_MESSAGES/marble_qt.qm
@@ -1240,328 +1228,6 @@ popd
 /usr/share/marble/data/maps/earth/temp-dec/temp-dec.dgml
 /usr/share/marble/data/maps/earth/temp-dec/temp-dec.jpg
 /usr/share/marble/data/maps/earth/temp-july/temp-july-preview.png
-/usr/share/marble/data/maps/earth/temp-july/temp-july.dgml
-/usr/share/marble/data/maps/earth/temp-july/temp-july.jpg
-/usr/share/marble/data/maps/earth/vectorosm/0/0/0.o5m
-/usr/share/marble/data/maps/earth/vectorosm/legend.html
-/usr/share/marble/data/maps/earth/vectorosm/vectorosm-preview.png
-/usr/share/marble/data/maps/earth/vectorosm/vectorosm.dgml
-/usr/share/marble/data/maps/moon/clementine/clementine-preview.png
-/usr/share/marble/data/maps/moon/clementine/clementine.dgml
-/usr/share/marble/data/maps/moon/clementine/clementine.jpg
-/usr/share/marble/data/maps/moon/clementine/legend.html
-/usr/share/marble/data/maps/moon/clementine/tour.kml
-/usr/share/marble/data/mwdbii/DATELINE.PNT
-/usr/share/marble/data/mwdbii/PCOAST.PNT
-/usr/share/marble/data/mwdbii/PDIFFBORDER.PNT
-/usr/share/marble/data/mwdbii/PGLACIER.PNT
-/usr/share/marble/data/mwdbii/PISLAND.PNT
-/usr/share/marble/data/mwdbii/PLAKE.PNT
-/usr/share/marble/data/mwdbii/PLAKEISLAND.PNT
-/usr/share/marble/data/mwdbii/PUSA48.DIFF.PNT
-/usr/share/marble/data/mwdbii/RIVER.PNT
-/usr/share/marble/data/naturalearth/ne_50m_admin_0_boundary_lines_land.pn2
-/usr/share/marble/data/naturalearth/ne_50m_admin_0_boundary_lines_maritime_indicator.pn2
-/usr/share/marble/data/naturalearth/ne_50m_admin_0_breakaway_disputed_areas.pn2
-/usr/share/marble/data/naturalearth/ne_50m_admin_0_countries.pn2
-/usr/share/marble/data/naturalearth/ne_50m_admin_0_pacific_groupings.pn2
-/usr/share/marble/data/naturalearth/ne_50m_admin_1_states_provinces_lines.pn2
-/usr/share/marble/data/naturalearth/ne_50m_antarctic_ice_shelves_lines.pn2
-/usr/share/marble/data/naturalearth/ne_50m_antarctic_ice_shelves_polys.pn2
-/usr/share/marble/data/naturalearth/ne_50m_coastline.pn2
-/usr/share/marble/data/naturalearth/ne_50m_glaciated_areas.pn2
-/usr/share/marble/data/naturalearth/ne_50m_lakes.pn2
-/usr/share/marble/data/naturalearth/ne_50m_lakes_historic.pn2
-/usr/share/marble/data/naturalearth/ne_50m_land.pn2
-/usr/share/marble/data/naturalearth/ne_50m_playas.pn2
-/usr/share/marble/data/naturalearth/ne_50m_rivers_lake_centerlines.pn2
-/usr/share/marble/data/naturalearth/ne_50m_urban_areas.pn2
-/usr/share/marble/data/placemarks/baseplacemarks.cache
-/usr/share/marble/data/placemarks/boundaryplacemarks.cache
-/usr/share/marble/data/placemarks/cityplacemarks.cache
-/usr/share/marble/data/placemarks/elevplacemarks.cache
-/usr/share/marble/data/placemarks/moonlandingsites.cache
-/usr/share/marble/data/placemarks/moonterrain.cache
-/usr/share/marble/data/placemarks/otherplacemarks.cache
-/usr/share/marble/data/precipcolors.leg
-/usr/share/marble/data/seacolors.leg
-/usr/share/marble/data/stars/constellations.dat
-/usr/share/marble/data/stars/deepsky.png
-/usr/share/marble/data/stars/dso.dat
-/usr/share/marble/data/stars/names.csv
-/usr/share/marble/data/stars/stars.dat
-/usr/share/marble/data/svg/application-x-marble-gray.png
-/usr/share/marble/data/svg/application-x-marble.png
-/usr/share/marble/data/svg/application-x-marble.svg
-/usr/share/marble/data/svg/bookmark.svg
-/usr/share/marble/data/svg/coordinate.svg
-/usr/share/marble/data/svg/dot-circle-regular.svg
-/usr/share/marble/data/svg/glow.png
-/usr/share/marble/data/svg/lunarmap.svg
-/usr/share/marble/data/svg/marble-logo-32dpi.png
-/usr/share/marble/data/svg/marble-logo-72dpi.png
-/usr/share/marble/data/svg/marble-logo-inverted-32dpi.png
-/usr/share/marble/data/svg/marble-logo-inverted-72dpi.png
-/usr/share/marble/data/svg/marble-logo.png
-/usr/share/marble/data/svg/marble-logo.svg
-/usr/share/marble/data/svg/marsmap.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_bike_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_boat_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_bus_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_car_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_railway_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_run_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_subway_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_directions_walk_48px.svg
-/usr/share/marble/data/svg/material/maps/ic_tram_48px.svg
-/usr/share/marble/data/svg/moon.png
-/usr/share/marble/data/svg/osmcarto/svg/airtransport/aerodrome.svg
-/usr/share/marble/data/svg/osmcarto/svg/airtransport/helipad.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/archaeological_site.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/artwork.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/atm.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/bank.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/bar.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/biergarten.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/cafe.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/car_wash.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/cave.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/cinema.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/community_centre-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/courthouse-16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/drinking_water.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/emergency_phone.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/fast_food.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/firestation.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/fountain-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/information.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/library.20.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/monument.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/mountain_rescue.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/museum.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/nightclub.18.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/picnic.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/playground.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/police.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/post_box-12.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/post_office-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/prison.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/pub.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/recycling.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/restaurant.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/social_facility.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/telephone.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/theatre.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/toilets.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/tourist_memorial.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/town_hall.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/viewpoint.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/water_park.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/water_tower.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/amenity/windmill.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/buddhist.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/christian.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/hinduist.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/jewish.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/muslim.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/place_of_worship.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/power_wind-16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/shintoist.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/sikhist.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/black/taoist.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/health/dentist.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/health/doctors.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/health/hospital.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/health/pharmacy.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/health/veterinary-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/bench.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/entrance.10.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/gate.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/level_crossing.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/level_crossing2.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/liftgate.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/mini_roundabout.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/peak.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/power_tower.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/power_tower_small.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/pylon.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/railway_station.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/saddle.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/speedcamera.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/spring.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/square.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/traffic_light.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/tree-16.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/tree-29-autumn.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/tree-29-winter.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/tree-29.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/volcano.svg
-/usr/share/marble/data/svg/osmcarto/svg/individual/waste_basket.10.svg
-/usr/share/marble/data/svg/osmcarto/svg/indoor/door.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/indoor/door_b.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/indoor/wall.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/indoor/wall_b.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/leisure/golf.svg
-/usr/share/marble/data/svg/osmcarto/svg/leisure/miniature_golf.svg
-/usr/share/marble/data/svg/osmcarto/svg/manmade/communications.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/manmade/hunting-stand.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/place/place-4-z7.svg
-/usr/share/marble/data/svg/osmcarto/svg/place/place-4.svg
-/usr/share/marble/data/svg/osmcarto/svg/place/place-6-z7.svg
-/usr/share/marble/data/svg/osmcarto/svg/place/place-6.svg
-/usr/share/marble/data/svg/osmcarto/svg/place/place-capital-6.svg
-/usr/share/marble/data/svg/osmcarto/svg/place/place-capital-8.svg
-/usr/share/marble/data/svg/osmcarto/svg/place/place-capital-adminlevel2.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/art.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/bag-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/beauty-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/beverages-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/butcher-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/car_parts-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/chemist-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/computer-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/confectionery-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/copyshop.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/deli.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/department_store-16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/florist.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/garden_centre-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/greengrocer-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/hifi-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/ice-cream-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/kiosk-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/laundry-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/mobile_phone.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/motorcycle-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/musical_instrument-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/newsagent-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/outdoor-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/perfumery-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/photo-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/seafood-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_alcohol.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_bakery.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_bicycle.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_books.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_car.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_clothes.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_convenience.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_diy.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_electronics.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_furniture.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_gift.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_hairdresser.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_jewelry.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_mobile_phone.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_optician.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_pet.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_shoes.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shop_supermarket.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/shopping_car_repair.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/sports.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/stationery-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/tea.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/tobacco.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/toys-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/travel_agency-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/shop/variety_store-14.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/alpinehut.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/bicycle_parking.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/bus_station.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/bus_stop.12.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/camping.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/car_share.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/caravan_park.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/charging_station.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/elevator-12.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/embassy.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/ford.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/fuel.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/guest_house.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/hostel.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/hotel.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/lighthouse.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/motel.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/motorcycle_parking.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/parking.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/railway_crossing.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/rental_bicycle.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/rental_car.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/rental_ski.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/shelter.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/subway_entrance.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/taxi.16.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/traffic_light_crossing.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/wilderness_hut.svg
-/usr/share/marble/data/svg/osmcarto/svg/transportation/zebra_crossing.svg
-/usr/share/marble/data/svg/sun.png
-/usr/share/marble/data/svg/sunshine.png
-/usr/share/marble/data/svg/thenounproject/101965-inline-skater.svg
-/usr/share/marble/data/svg/thenounproject/204712-hiker.svg
-/usr/share/marble/data/svg/thenounproject/21636-gondola.svg
-/usr/share/marble/data/svg/thenounproject/231-chair-lift.svg
-/usr/share/marble/data/svg/thenounproject/2412-skiing-downhill.svg
-/usr/share/marble/data/svg/thenounproject/245-ski-jump.svg
-/usr/share/marble/data/svg/thenounproject/29366-skitour.svg
-/usr/share/marble/data/svg/thenounproject/30231-skiing-cross-country.svg
-/usr/share/marble/data/svg/thenounproject/365217-sled.svg
-/usr/share/marble/data/svg/thenounproject/583813-cable-car.svg
-/usr/share/marble/data/svg/thenounproject/61698-mountain-biking.svg
-/usr/share/marble/data/svg/thenounproject/78374-horse-riding.svg
-/usr/share/marble/data/svg/thenounproject/8803-platter-lift.svg
-/usr/share/marble/data/svg/thenounproject/sports-245-ski-jump.svg
-/usr/share/marble/data/svg/thenounproject/transportation-21636-gondola.svg
-/usr/share/marble/data/svg/thenounproject/transportation-231-chair-lift.svg
-/usr/share/marble/data/svg/thenounproject/transportation-583813-cable-car.svg
-/usr/share/marble/data/svg/thenounproject/transportation-8803-platter-lift.svg
-/usr/share/marble/data/svg/track_turtle.svg
-/usr/share/marble/data/svg/wikipedia.svg
-/usr/share/marble/data/svg/wikipedia_shadow.svg
-/usr/share/marble/data/svg/worldmap.svg
-/usr/share/marble/data/tempcolors.leg
-/usr/share/marble/data/weather/bbc-stations.xml
-/usr/share/marble/data/weather/weather-clear-night.png
-/usr/share/marble/data/weather/weather-clear.png
-/usr/share/marble/data/weather/weather-clouds-night.png
-/usr/share/marble/data/weather/weather-clouds.png
-/usr/share/marble/data/weather/weather-few-clouds-night.png
-/usr/share/marble/data/weather/weather-few-clouds.png
-/usr/share/marble/data/weather/weather-hail.png
-/usr/share/marble/data/weather/weather-many-clouds.png
-/usr/share/marble/data/weather/weather-mist.png
-/usr/share/marble/data/weather/weather-none-available.png
-/usr/share/marble/data/weather/weather-showers-day.png
-/usr/share/marble/data/weather/weather-showers-night.png
-/usr/share/marble/data/weather/weather-showers-scattered-day.png
-/usr/share/marble/data/weather/weather-showers-scattered-night.png
-/usr/share/marble/data/weather/weather-showers-scattered.png
-/usr/share/marble/data/weather/weather-showers.png
-/usr/share/marble/data/weather/weather-snow-rain.png
-/usr/share/marble/data/weather/weather-snow-scattered-day.png
-/usr/share/marble/data/weather/weather-snow-scattered-night.png
-/usr/share/marble/data/weather/weather-snow-scattered.png
-/usr/share/marble/data/weather/weather-snow.png
-/usr/share/marble/data/weather/weather-storm-day.png
-/usr/share/marble/data/weather/weather-storm-night.png
-/usr/share/marble/data/weather/weather-storm.png
-/usr/share/marble/data/weather/wind-arrows.svgz
-/usr/share/metainfo/org.kde.marble.appdata.xml
-/usr/share/metainfo/org.kde.plasma.worldclock.appdata.xml
-/usr/share/metainfo/org.kde.plasma.worldmap.appdata.xml
-/usr/share/mime-packages/geo.xml
-/usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/config.qml
-/usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/config/main.xml
-/usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/ui/configMapDisplay.qml
-/usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/ui/configTimeZones.qml
-/usr/share/plasma/plasmoids/org.kde.plasma.worldclock/contents/ui/main.qml
-/usr/share/plasma/plasmoids/org.kde.plasma.worldclock/metadata.desktop
-/usr/share/plasma/plasmoids/org.kde.plasma.worldclock/metadata.json
-/usr/share/plasma/wallpapers/org.kde.plasma.worldmap/contents/config/main.xml
-/usr/share/plasma/wallpapers/org.kde.plasma.worldmap/contents/ui/config.qml
-/usr/share/plasma/wallpapers/org.kde.plasma.worldmap/contents/ui/main.qml
-/usr/share/plasma/wallpapers/org.kde.plasma.worldmap/metadata.desktop
-/usr/share/plasma/wallpapers/org.kde.plasma.worldmap/metadata.json
 
 %files dev
 %defattr(-,root,root,-)
@@ -1673,11 +1339,10 @@ popd
 /usr/include/marble/MarbleMath.h
 /usr/include/marble/MarbleModel.h
 /usr/include/marble/MarbleNavigator.h
+/usr/include/marble/MarbleWebView.h
 /usr/include/marble/MarbleWidget.h
 /usr/include/marble/MarbleWidgetInputHandler.h
 /usr/include/marble/MarbleWidgetPopupMenu.h
-/usr/include/marble/NullMarbleWebView.h
-/usr/include/marble/NullTinyWebBrowser.h
 /usr/include/marble/OsmcSymbol.h
 /usr/include/marble/ParseRunnerPlugin.h
 /usr/include/marble/ParsingRunner.h
@@ -1722,6 +1387,7 @@ popd
 /usr/include/marble/TileCreatorDialog.h
 /usr/include/marble/TileId.h
 /usr/include/marble/TileLevelRangeWidget.h
+/usr/include/marble/TinyWebBrowser.h
 /usr/include/marble/TourControlEditWidget.h
 /usr/include/marble/TourItemDelegate.h
 /usr/include/marble/TourPlayback.h
@@ -1928,8 +1594,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libastro.so.23.8.0
-/V3/usr/lib64/libmarblewidget-qt5.so.23.8.0
+/V3/usr/lib64/libastro.so.23.8.1
+/V3/usr/lib64/libmarblewidget-qt5.so.23.8.1
 /V3/usr/lib64/marble/plugins/AnnotatePlugin.so
 /V3/usr/lib64/marble/plugins/AprsPlugin.so
 /V3/usr/lib64/marble/plugins/AtmospherePlugin.so
@@ -1967,10 +1633,12 @@ popd
 /V3/usr/lib64/marble/plugins/NominatimSearchPlugin.so
 /V3/usr/lib64/marble/plugins/NotesPlugin.so
 /V3/usr/lib64/marble/plugins/OSRMPlugin.so
+/V3/usr/lib64/marble/plugins/OpenDesktopPlugin.so
 /V3/usr/lib64/marble/plugins/OpenLocationCodeSearchPlugin.so
 /V3/usr/lib64/marble/plugins/OpenRouteServicePlugin.so
 /V3/usr/lib64/marble/plugins/OsmPlugin.so
 /V3/usr/lib64/marble/plugins/OverviewMap.so
+/V3/usr/lib64/marble/plugins/Photo.so
 /V3/usr/lib64/marble/plugins/Pn2Plugin.so
 /V3/usr/lib64/marble/plugins/PntPlugin.so
 /V3/usr/lib64/marble/plugins/PositionMarker.so
@@ -1983,17 +1651,17 @@ popd
 /V3/usr/lib64/marble/plugins/Speedometer.so
 /V3/usr/lib64/marble/plugins/StarsPlugin.so
 /V3/usr/lib64/marble/plugins/SunPlugin.so
+/V3/usr/lib64/marble/plugins/Weather.so
+/V3/usr/lib64/marble/plugins/Wikipedia.so
 /V3/usr/lib64/marble/plugins/YoursPlugin.so
 /V3/usr/lib64/plugins/designer/LatLonEditPlugin.so
 /V3/usr/lib64/plugins/designer/MarbleNavigatorPlugin.so
 /V3/usr/lib64/plugins/designer/MarbleWidgetPlugin.so
-/V3/usr/lib64/qt5/plugins/kf5/krunner/plasma_runner_marble.so
 /V3/usr/lib64/qt5/plugins/libmarble_part.so
 /V3/usr/lib64/qt5/plugins/marblethumbnail.so
-/V3/usr/lib64/qt5/qml/org/kde/marble/private/plasma/libmarblequick.so
 /usr/lib64/libastro.so.1
-/usr/lib64/libastro.so.23.8.0
-/usr/lib64/libmarblewidget-qt5.so.23.8.0
+/usr/lib64/libastro.so.23.8.1
+/usr/lib64/libmarblewidget-qt5.so.23.8.1
 /usr/lib64/libmarblewidget-qt5.so.28
 /usr/lib64/marble/plugins/AnnotatePlugin.so
 /usr/lib64/marble/plugins/AprsPlugin.so
@@ -2032,10 +1700,12 @@ popd
 /usr/lib64/marble/plugins/NominatimSearchPlugin.so
 /usr/lib64/marble/plugins/NotesPlugin.so
 /usr/lib64/marble/plugins/OSRMPlugin.so
+/usr/lib64/marble/plugins/OpenDesktopPlugin.so
 /usr/lib64/marble/plugins/OpenLocationCodeSearchPlugin.so
 /usr/lib64/marble/plugins/OpenRouteServicePlugin.so
 /usr/lib64/marble/plugins/OsmPlugin.so
 /usr/lib64/marble/plugins/OverviewMap.so
+/usr/lib64/marble/plugins/Photo.so
 /usr/lib64/marble/plugins/Pn2Plugin.so
 /usr/lib64/marble/plugins/PntPlugin.so
 /usr/lib64/marble/plugins/PositionMarker.so
@@ -2048,27 +1718,14 @@ popd
 /usr/lib64/marble/plugins/Speedometer.so
 /usr/lib64/marble/plugins/StarsPlugin.so
 /usr/lib64/marble/plugins/SunPlugin.so
+/usr/lib64/marble/plugins/Weather.so
+/usr/lib64/marble/plugins/Wikipedia.so
 /usr/lib64/marble/plugins/YoursPlugin.so
 /usr/lib64/plugins/designer/LatLonEditPlugin.so
 /usr/lib64/plugins/designer/MarbleNavigatorPlugin.so
 /usr/lib64/plugins/designer/MarbleWidgetPlugin.so
-/usr/lib64/qt5/plugins/kf5/krunner/plasma_runner_marble.so
 /usr/lib64/qt5/plugins/libmarble_part.so
 /usr/lib64/qt5/plugins/marblethumbnail.so
-/usr/lib64/qt5/qml/org/kde/marble/private/plasma/libmarblequick.so
-/usr/lib64/qt5/qml/org/kde/marble/private/plasma/qmldir
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/marble/0b71159e19bef95069e18d17296291916e89b5cd
-/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1
-/usr/share/package-licenses/marble/3630f1ffcec0e075bf446b88c7b507b1287b571d
-/usr/share/package-licenses/marble/5c6c38fa1b6ac7c66252c83d1203e997ae3d1c98
-/usr/share/package-licenses/marble/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
-/usr/share/package-licenses/marble/adadb67a9875aeeac285309f1eab6e47d9ee08a7
-/usr/share/package-licenses/marble/be561fe6eb626c2566b9a6c0885554b4ee4e6b74
-/usr/share/package-licenses/marble/e3bdbf20d43fc066a1b40a64d57d4ae5a31f177f
-/usr/share/package-licenses/marble/fa05e58320cb7c64786b26396f4b992579a628bc
 
 %files locales -f marble.lang -f plasma_applet_org.kde.plasma.worldclock.lang -f plasma_runner_marble.lang -f plasma_wallpaper_org.kde.plasma.worldmap.lang
 %defattr(-,root,root,-)
