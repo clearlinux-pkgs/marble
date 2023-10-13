@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : marble
-Version  : 23.08.1
-Release  : 69
-URL      : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.08.1/src/marble-23.08.1.tar.xz.sig
+Version  : 23.08.2
+Release  : 70
+URL      : https://download.kde.org/stable/release-service/23.08.2/src/marble-23.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.2/src/marble-23.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.2/src/marble-23.08.2.tar.xz.sig
 Summary  : zlib compression library
 Group    : Development/Tools
 License  : Apache-2.0 BSD-3-Clause CC0-1.0 GFDL-1.2 GPL-3.0 LGPL-2.0 LGPL-2.1 LGPL-3.0 MIT
@@ -107,25 +107,31 @@ locales components for the marble package.
 
 
 %prep
-%setup -q -n marble-23.08.1
-cd %{_builddir}/marble-23.08.1
+%setup -q -n marble-23.08.2
+cd %{_builddir}/marble-23.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695061542
+export SOURCE_DATE_EPOCH=1697232269
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 %cmake ..
 make  %{?_smp_mflags}
 popd
@@ -135,20 +141,40 @@ export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 "
-export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 "
-export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 "
-export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
-export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
-export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
-export FCFLAGS="$FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1695061542
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -ffat-lto-objects -flto=auto "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
+export SOURCE_DATE_EPOCH=1697232269
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/marble
 cp %{_builddir}/marble-%{version}/COPYING.DOC %{buildroot}/usr/share/package-licenses/marble/1bd373e4851a93027ba70064bd7dbdc6827147e1 || :
@@ -1925,9 +1951,9 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libastro.so.23.8.1
+/V3/usr/lib64/libastro.so.23.8.2
 /V3/usr/lib64/libmarbledeclarative.so
-/V3/usr/lib64/libmarblewidget-qt5.so.23.8.1
+/V3/usr/lib64/libmarblewidget-qt5.so.23.8.2
 /V3/usr/lib64/marble/plugins/AnnotatePlugin.so
 /V3/usr/lib64/marble/plugins/AprsPlugin.so
 /V3/usr/lib64/marble/plugins/AtmospherePlugin.so
@@ -1996,10 +2022,10 @@ popd
 /V3/usr/lib64/qt5/qml/org/kde/marble/private/plasma/libmarblequick.so
 /usr/lib64/libastro.so
 /usr/lib64/libastro.so.1
-/usr/lib64/libastro.so.23.8.1
+/usr/lib64/libastro.so.23.8.2
 /usr/lib64/libmarbledeclarative.so
 /usr/lib64/libmarblewidget-qt5.so
-/usr/lib64/libmarblewidget-qt5.so.23.8.1
+/usr/lib64/libmarblewidget-qt5.so.23.8.2
 /usr/lib64/libmarblewidget-qt5.so.28
 /usr/lib64/marble/plugins/AnnotatePlugin.so
 /usr/lib64/marble/plugins/AprsPlugin.so
