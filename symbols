@@ -495,6 +495,9 @@ libmarbledeclarative.so:_ZThn16_N23MarbleDeclarativePlugin13registerTypesEPKc
 libmarbledeclarative.so:_ZThn16_N23MarbleDeclarativePlugin16initializeEngineEP10QQmlEnginePKc
 libmarbledeclarative.so:_ZThn16_N6Marble15MarbleQuickItem10classBeginEv
 libmarbledeclarative.so:_ZThn16_N6Marble15MarbleQuickItem17componentCompleteEv
+libmarblewidget-qt5.so.28:_Z10MARBLE_LIBv
+libmarblewidget-qt5.so.28:_Z14MARBLE_DEFAULTv
+libmarblewidget-qt5.so.28:_Z14MARBLE_PLUGINSv
 libmarblewidget-qt5.so.28:_ZN13MarbleWebPage11linkClickedERK4QUrl
 libmarblewidget-qt5.so.28:_ZN13MarbleWebPage11qt_metacallEN11QMetaObject4CallEiPPv
 libmarblewidget-qt5.so.28:_ZN13MarbleWebPage11qt_metacastEPKc
@@ -4021,7 +4024,6 @@ libmarblewidget-qt5.so.28:_ZN6Marble6TileIdC1Ev
 libmarblewidget-qt5.so.28:_ZN6Marble6TileIdC2ERK7QStringiii
 libmarblewidget-qt5.so.28:_ZN6Marble6TileIdC2Ejiii
 libmarblewidget-qt5.so.28:_ZN6Marble6TileIdC2Ev
-libmarblewidget-qt5.so.28:_ZN6Marble6mDebugEv
 libmarblewidget-qt5.so.28:_ZN6Marble7GeoNodeC1Ev
 libmarblewidget-qt5.so.28:_ZN6Marble7GeoNodeC2Ev
 libmarblewidget-qt5.so.28:_ZN6Marble7GeoNodeD0Ev
