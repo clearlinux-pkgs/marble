@@ -9,7 +9,7 @@
 #
 Name     : marble
 Version  : 24.05.1
-Release  : 81
+Release  : 82
 URL      : https://download.kde.org/stable/release-service/24.05.1/src/marble-24.05.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.05.1/src/marble-24.05.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.05.1/src/marble-24.05.1.tar.xz.sig
