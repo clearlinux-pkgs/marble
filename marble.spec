@@ -9,7 +9,7 @@
 #
 Name     : marble
 Version  : 24.08.1
-Release  : 89
+Release  : 90
 URL      : https://download.kde.org/stable/release-service/24.08.1/src/marble-24.08.1.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.08.1/src/marble-24.08.1.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.08.1/src/marble-24.08.1.tar.xz.sig
