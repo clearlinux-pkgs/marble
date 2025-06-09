@@ -27,7 +27,7 @@ libQt6SvgWidgets.so.6
 libQt6Widgets.so.6
 libQt6Xml.so.6
 libc.so.6
-libgps.so.30
+libgps.so.31
 libm.so.6
 libprotobuf.so.25.3.0
 libstdc++.so.6
